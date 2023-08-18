@@ -2,14 +2,14 @@ class Solution {
 public:
 
     void backtrack(vector<vector<int>>& res,int n,int k,int current,vector<int>vec){
-        if(vec.size()==k){
+        if(0==k){
             res.push_back(vec);
             return;
         }
-        for(int i=current;i<=n;i++)
+        for(int i=current;n-k+1>=i;i++)
         {
             vec.push_back(i);
-            backtrack(res,n,k,i+1,vec);
+            backtrack(res,n,k-1,i+1,vec);
             vec.pop_back();
         }
     }
