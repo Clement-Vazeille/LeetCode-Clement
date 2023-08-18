@@ -1,7 +1,7 @@
 class Solution {
 public:
 
-    void backtrack(vector<vector<int>>& res,int n,int k,int current,vector<int>vec){
+    void backtrack(vector<vector<int>>& res,int n,int k,int current,vector<int>& vec){
         if(0==k){
             res.push_back(vec);
             return;
@@ -11,6 +11,8 @@ public:
         
         vec.push_back(current);
         backtrack(res,n,k-1,current+1,vec);
+
+        vec.pop_back();
     }
 
     vector<vector<int>> combine(int n, int k) {
