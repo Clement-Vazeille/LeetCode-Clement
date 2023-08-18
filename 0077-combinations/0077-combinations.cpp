@@ -6,12 +6,11 @@ public:
             res.push_back(vec);
             return;
         }
-        for(int i=current;n-k+1>=i;i++)
-        {
-            vec.push_back(i);
-            backtrack(res,n,k-1,i+1,vec);
-            vec.pop_back();
-        }
+
+        if(n-current>=k){backtrack(res,n,k,current+1,vec);}
+        
+        vec.push_back(current);
+        backtrack(res,n,k-1,current+1,vec);
     }
 
     vector<vector<int>> combine(int n, int k) {
