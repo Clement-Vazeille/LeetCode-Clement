@@ -16,7 +16,7 @@ private:
 
         if(n-current>=k){backtrack(res,n,k,current+1,vec);}
         
-        vec.push_back(current);
+        vec.emplace_back(current);
         backtrack(res,n,k-1,current+1,vec);
 
         vec.pop_back();
