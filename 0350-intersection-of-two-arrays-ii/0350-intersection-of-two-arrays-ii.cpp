@@ -5,17 +5,15 @@ public:
         map<int,int> occMap;
         for(int elem:nums1)
         {
-            occMap.try_emplace(elem,0);
             occMap[elem]++;
         }
 
         for(int elem:nums2)
         {
-            occMap.try_emplace(elem,0);
-                if(occMap[elem]-->0)
-                {
-                    ans.push_back(elem);
-                }
+            if(occMap.find(elem)!=occMap.end())
+            {
+                if(occMap[elem]-->0)ans.push_back(elem);
+            }
             
         }
         return ans;
